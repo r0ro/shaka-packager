@@ -77,10 +77,11 @@ HLS options
     https://tools.ietf.org/html/rfc8216#section-4.3.3.2.
 
 
---hls_ext_x_program_date_time
+--hls_ext_x_program_date_time <time_offset_ms>
 
     Adds an EXT-X-PROGRAM-DATE-TIME tag to every Media Segment, with fixed UTC
-    timezone.
+    timezone. Time offset is the difference in milliseconds between packaging time
+    and live event time.
 
 --hls_only=0|1
 

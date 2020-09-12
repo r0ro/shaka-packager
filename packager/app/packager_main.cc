@@ -489,7 +489,11 @@ base::Optional<PackagingParams> GetPackagingParams() {
   hls_params.default_language = FLAGS_default_language;
   hls_params.default_text_language = FLAGS_default_text_language;
   hls_params.media_sequence_number = FLAGS_hls_media_sequence_number;
-  hls_params.ext_x_program_date_time = FLAGS_hls_ext_x_program_date_time;
+
+  if (FLAGS_hls_ext_x_program_date_time != INT32_MIN) {
+    hls_params.add_ext_x_program_date_time = true;
+    hls_params.packaging_time_offset_ms = FLAGS_hls_ext_x_program_date_time;
+  }
 
   TestParams& test_params = packaging_params.test_params;
   test_params.dump_stream_info = FLAGS_dump_stream_info;
